@@ -67,3 +67,44 @@
 .form button[type='submit']:focus {
   box-shadow: 0 0 0 2px var(--gray-100);
 }
+
+.tasksWrapper {
+  margin-top: 4rem;
+
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--gray-400);
+}
+
+.tasksInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.createdTasks,
+.completedTasks {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.createdTasks {
+  color: var(--blue-300);
+}
+
+.completedTasks {
+  color: var(--purple-300);
+}
+
+.createdTasks span,
+.completedTasks span {
+  background-color: var(--gray-400);
+  color: var(--gray-200);
+
+  padding: 0.125rem 0.5rem;
+
+  border-radius: 100%;
+}

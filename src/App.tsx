@@ -21,10 +21,12 @@ function App(): React.ReactElement {
         <div className={styles.tasksWrapper}>
           <header className={styles.tasksInfo}>
             <p className={styles.createdTasks}>
-              <span></span>
+              Tarefas criadas
+              <span>0</span>
             </p>
             <p className={styles.completedTasks}>
-              <span></span>
+              Concluídas
+              <span>0</span>
             </p>
           </header>
 
