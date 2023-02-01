@@ -13,7 +13,7 @@
     "lint:fix": "npm run prettier:fix && npm run eslint:fix",
     "prepare": "husky install && chmod a+x .husky/",
     "prettier": "prettier --check .",
-    "prettier:fix": "prettier --write .",
+    "prettier:fix": "prettier --write . --ignore-unknown",
     "preview": "vite preview"
   },
   "dependencies": {
