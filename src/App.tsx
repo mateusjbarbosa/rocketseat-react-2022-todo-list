@@ -10,25 +10,27 @@ function App(): React.ReactElement {
         <img src={logoPath} alt="ToDo List logo" title="ToDo List logo" />
       </header>
 
-      <form className={styles.form}>
-        <input name="task" placeholder="Adicione uma nova tarefa" required />
-        <button type="submit">
-          Criar <PlusCircle size={16} weight="bold" />
-        </button>
-      </form>
+      <main className={styles.wrapper}>
+        <form className={styles.form}>
+          <input name="task" placeholder="Adicione uma nova tarefa" required />
+          <button type="submit">
+            Criar <PlusCircle size={16} weight="bold" />
+          </button>
+        </form>
 
-      <div className={styles.tasksWrapper}>
-        <header className={styles.tasksInfo}>
-          <p className={styles.createdTasks}>
-            <span></span>
-          </p>
-          <p className={styles.completedTasks}>
-            <span></span>
-          </p>
-        </header>
+        <div className={styles.tasksWrapper}>
+          <header className={styles.tasksInfo}>
+            <p className={styles.createdTasks}>
+              <span></span>
+            </p>
+            <p className={styles.completedTasks}>
+              <span></span>
+            </p>
+          </header>
 
-        <div className={styles.tasksList}></div>
-      </div>
+          <div className={styles.tasksList}></div>
+        </div>
+      </main>
     </>
   );
 }

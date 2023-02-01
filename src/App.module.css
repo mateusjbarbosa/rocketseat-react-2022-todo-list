@@ -8,6 +8,12 @@
   height: 12.5rem;
 }
 
+.wrapper {
+  margin: 0 auto;
+
+  max-width: 45rem;
+}
+
 .form {
   display: flex;
   align-items: center;
@@ -27,8 +33,6 @@
 
   border: 1pt solid var(--gray-700);
   border-radius: 0.5rem;
-
-  max-width: 45rem;
 }
 
 .form input:focus {
