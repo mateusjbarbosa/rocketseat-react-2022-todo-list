@@ -1,3 +1,4 @@
+import { PlusCircle } from 'phosphor-react';
 import React from 'react';
 import styles from './App.module.css';
 import logoPath from './assets/todo-list-logo.svg';
@@ -10,8 +11,10 @@ function App(): React.ReactElement {
       </header>
 
       <form className={styles.form}>
-        <input></input>
-        <button></button>
+        <input name="task" placeholder="Adicione uma nova tarefa" required />
+        <button type="submit">
+          Criar <PlusCircle size={16} weight="bold" />
+        </button>
       </form>
 
       <div className={styles.tasksWrapper}>

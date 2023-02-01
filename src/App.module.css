@@ -7,3 +7,59 @@
 
   height: 12.5rem;
 }
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  margin-top: calc(0px - 1.5rem);
+}
+
+.form input {
+  flex: 1;
+
+  background-color: var(--gray-500);
+  color: var(--gray-300);
+
+  padding: 1rem;
+
+  border: 1pt solid var(--gray-700);
+  border-radius: 0.5rem;
+
+  max-width: 45rem;
+}
+
+.form input:focus {
+  color: var(--gray-100);
+}
+
+.form button[type='submit'] {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  background-color: var(--blue-500);
+  color: var(--gray-100);
+
+  padding: 1rem;
+
+  border: none;
+  border-radius: 0.5rem;
+
+  font-size: 0.875rem;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.form button[type='submit']:hover {
+  background-color: var(--blue-300);
+
+  transition: background-color 0.3s;
+}
+
+.form button[type='submit']:focus {
+  box-shadow: 0 0 0 2px var(--gray-100);
+}
