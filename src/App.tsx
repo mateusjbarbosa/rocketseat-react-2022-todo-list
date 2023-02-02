@@ -11,22 +11,49 @@ interface Task {
 }
 
 function App(): React.ReactElement {
-  const [tasks, setTasks] = useState<Task[]>([
-    {
-      id: 1,
-      content:
-        // eslint-disable-next-line max-len
-        'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.',
-      isCompleted: false,
-    },
-    {
-      id: 2,
-      content:
-        // eslint-disable-next-line max-len
-        'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.',
-      isCompleted: true,
-    },
-  ]);
+  const [tasks, setTasks] = useState<Task[]>([]);
+  const [task, setTask] = useState<string>('');
+
+  const createdTasksCount = tasks.length;
+  const completedTasksCount = tasks.filter((t) => t.isCompleted).length;
+
+  function handleNewTask(e: React.FormEvent) {
+    e.preventDefault();
+
+    setTasks((currentState) => [
+      ...currentState,
+      {
+        id: tasks.length + 1,
+        content: task,
+        isCompleted: false,
+      },
+    ]);
+
+    setTask('');
+  }
+
+  function handleTaskChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setTask(e.target.value);
+  }
+
+  function handleCheckTask(e: React.ChangeEvent<HTMLInputElement>, taskId: number) {
+    const updatedTasks = tasks.map((t) => {
+      if (t.id === taskId) {
+        t.isCompleted = !t.isCompleted;
+
+        return t;
+      }
+      return t;
+    });
+
+    setTasks(updatedTasks);
+  }
+
+  function handleRemoveTask(taskId: number) {
+    const tasksWithoutRemovedOne = tasks.filter((t) => t.id !== taskId);
+
+    setTasks(tasksWithoutRemovedOne);
+  }
 
   return (
     <>
@@ -35,8 +62,14 @@ function App(): React.ReactElement {
       </header>
 
       <main className={styles.wrapper}>
-        <form className={styles.form}>
-          <input name="task" placeholder="Adicione uma nova tarefa" required />
+        <form className={styles.form} onSubmit={handleNewTask}>
+          <input
+            name="task"
+            onChange={handleTaskChange}
+            placeholder="Adicione uma nova tarefa"
+            required
+            value={task}
+          />
           <button type="submit">
             Criar <PlusCircle size={16} weight="bold" />
           </button>
@@ -46,11 +79,13 @@ function App(): React.ReactElement {
           <header className={styles.tasksInfo}>
             <p className={styles.createdTasks}>
               Tarefas criadas
-              <span>0</span>
+              <span>{createdTasksCount}</span>
             </p>
             <p className={styles.completedTasks}>
               Concluídas
-              <span>0 de 0</span>
+              <span>
+                {completedTasksCount} de {createdTasksCount}
+              </span>
             </p>
           </header>
 
@@ -65,11 +100,15 @@ function App(): React.ReactElement {
               tasks.map((task) => (
                 <div key={task.id} className={styles.task}>
                   <label className={styles.checkbox}>
-                    <input type="checkbox" checked={task.isCompleted} />
+                    <input
+                      type="checkbox"
+                      checked={task.isCompleted}
+                      onChange={(e) => handleCheckTask(e, task.id)}
+                    />
                     <span className={styles.checked} />
                   </label>
                   <p className={task.isCompleted ? styles.isChecked : ''}>{task.content}</p>
-                  <button className={styles.trash}>
+                  <button className={styles.trash} onClick={() => handleRemoveTask(task.id)}>
                     <Trash size={24} />
                   </button>
                 </div>
