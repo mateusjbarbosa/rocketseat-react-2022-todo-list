@@ -1,22 +1,40 @@
 {
   "name": "rocketseat-react-2022-todo-list",
-  "private": true,
   "version": "1.0.0",
-  "type": "module",
+  "private": true,
   "description": "A project based on React 2022 Ignite trail Rocketseat Education",
+  "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "tsc && vite build",
+    "dev": "vite",
+    "eslint": "npx eslint . --ext .js,.jsx,.ts,.tsx",
+    "eslint:fix": "npx eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "lint:check": "npm run prettier && npm run eslint",
+    "lint:fix": "npm run prettier:fix && npm run eslint:fix",
+    "prepare": "husky install && chmod a+x .husky/",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write . --ignore-unknown",
     "preview": "vite preview"
   },
   "dependencies": {
+    "phosphor-react": "1.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "17.4.2",
+    "@commitlint/config-conventional": "17.4.2",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
+    "@typescript-eslint/eslint-plugin": "5.50.0",
+    "@typescript-eslint/parser": "5.50.0",
     "@vitejs/plugin-react-swc": "3.0.1",
+    "eslint": "8.33.0",
+    "eslint-config-prettier": "8.6.0",
+    "eslint-plugin-react": "7.32.2",
+    "husky": "8.0.3",
+    "lint-staged": "13.1.0",
+    "prettier": "2.8.3",
     "typescript": "4.9.5",
     "vite": "4.0.4"
   },
