@@ -1,4 +1,4 @@
 {
-  "*.{js,ts}": ["npm run lint:fix"],
-  "!*.{js,ts}": ["npm run prettier:fix"]
+  "*.{js,jsx,ts,tsx}": ["npm run lint:fix"],
+  "!*.{js,jsx,ts,tsx}": ["npm run prettier:fix"]
 }

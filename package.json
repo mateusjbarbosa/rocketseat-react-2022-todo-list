@@ -13,10 +13,11 @@
     "lint:fix": "npm run prettier:fix && npm run eslint:fix",
     "prepare": "husky install && chmod a+x .husky/",
     "prettier": "prettier --check .",
-    "prettier:fix": "prettier --write .",
+    "prettier:fix": "prettier --write . --ignore-unknown",
     "preview": "vite preview"
   },
   "dependencies": {
+    "phosphor-react": "1.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
