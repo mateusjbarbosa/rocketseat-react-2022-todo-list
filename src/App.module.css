@@ -70,15 +70,16 @@
 
 .tasksWrapper {
   margin-top: 4rem;
-
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--gray-400);
 }
 
 .tasksInfo {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  padding-bottom: 1.5rem;
+
+  border-bottom: 1px solid var(--gray-400);
 }
 
 .createdTasks,
@@ -106,5 +107,156 @@
 
   padding: 0.125rem 0.5rem;
 
-  border-radius: 100%;
+  border-radius: 0.75rem;
+}
+
+.emptyList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 4rem 0;
+}
+
+.emptyList img {
+  height: 3.5rem;
+
+  margin-bottom: 1rem;
+}
+
+.task {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+
+  background-color: var(--gray-500);
+
+  padding: 1rem;
+  margin-top: 1rem;
+
+  border: 1px solid var(--gray-400);
+  border-radius: 0.5rem;
+}
+
+.task p {
+  padding-left: 1.5rem;
+}
+
+.task + .task {
+  margin-top: 1rem;
+}
+
+.trash {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: transparent;
+  color: var(--gray-300);
+
+  padding: 0.5rem;
+
+  border: none;
+  border-radius: 0.5rem;
+
+  cursor: pointer;
+}
+
+.trash:hover {
+  background-color: var(--gray-400);
+  color: var(--red-500);
+
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.checkbox {
+  display: block;
+  position: relative;
+
+  font-size: 1.5rem;
+
+  cursor: pointer;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox input {
+  position: absolute;
+
+  height: 0;
+  width: 0;
+
+  opacity: 0;
+
+  cursor: pointer;
+}
+
+.checked:after:focus {
+  outline: transparent;
+  box-shadow: 0 0 0 2px var(--red-500);
+}
+
+.checked {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  height: 1.5rem;
+  width: 1.5rem;
+
+  border-radius: 1.5rem;
+
+  background-color: transparent;
+
+  border: 3px solid var(--blue-300);
+}
+
+.checkbox input:hover ~ .checked {
+  background-color: var(--blue-500);
+
+  transition: background-color 0.3s;
+}
+
+.checkbox input:checked ~ .checked {
+  border-color: var(--purple-500);
+  background-color: var(--purple-500);
+}
+
+.checkbox input:checked ~ .checked:hover {
+  border-color: var(--purple-300);
+  background-color: var(--purple-300);
+
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.checked:after {
+  position: absolute;
+
+  content: '';
+
+  display: none;
+}
+
+.checkbox input:checked ~ .checked:after {
+  display: block;
+}
+
+.checked:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--gray-100);
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.isChecked {
+  text-decoration: line-through;
 }
